@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       products,
-      date: new Date().toJSON()
+      date: new Date().toJSON(),
     },
     revalidate: 20, // since internal cache is 5 minutes, data will be re-fetched every 300 seconds
   };
