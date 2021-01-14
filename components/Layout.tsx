@@ -9,10 +9,15 @@ const Layout = (props) => {
           href="https://bootswatch.com/4/materia/bootstrap.min.css"
         />
       </Head>
-      <div style={{
-        height: '100vh',
-        width: '100vw'
-      }}>{props.children}</div>
+      {/* Parent div needs explicitly defined height/width in order for the AutoSizer to work properly */}
+      <div
+        style={{
+          height: "100vh",
+          width: "100vw",
+        }}
+      >
+        {props.children}
+      </div>
     </div>
   );
 };

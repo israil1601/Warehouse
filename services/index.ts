@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL, CATEGORIES } from "../constants";
+import { BASE_URL, CATEGORIES, RETRY_COUNT } from "../constants";
 import {
   AvailabilityResponse,
   FetchAvailabilities,
@@ -46,7 +46,7 @@ const fetchWithRetry = async (url: string, retryCount: number) => {
 const fetchAvailabilities: FetchAvailabilities = (manufacturers: string[]) => {
   return Promise.all(
     manufacturers.map((manufacturer) =>
-      fetchWithRetry(`${BASE_URL}availability/${manufacturer}`, 5).catch(
+      fetchWithRetry(`${BASE_URL}availability/${manufacturer}`, RETRY_COUNT).catch(
         (err) => {
           console.log(`Error fetching manufacturer ${manufacturer}`);
           return [];

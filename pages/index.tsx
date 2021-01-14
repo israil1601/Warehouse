@@ -29,18 +29,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const manufacturers = getUniqueManufacturers(productsInfo);
   const availabilitiyList = (await fetchAvailabilities(manufacturers)).flat();
   const availabilities: AvailabilityInfo = getAvailabilitiesObject(
-    availabilitiyList,
+    availabilitiyList
   );
   const productsList: Product[] = getProducts(productsInfo, availabilities);
 
   const products: { [category: string]: Product[] } = groupProductsByCategory(
-    productsList,
+    productsList
   );
   return {
     props: {
       products,
       date: new Date().toJSON(),
     },
-    revalidate: 300, // since internal cache is 5 minutes, data will be re-fetched every 300 seconds
+    revalidate: 300, // since internal cache is 5 minutes, data will be regenerated every 300 seconds
   };
 };

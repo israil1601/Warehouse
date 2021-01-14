@@ -4,7 +4,8 @@ const NavBar = ({ categories, setCurrentCategory }) => {
       <a className="navbar-brand">Warehouse</a>
       <div className="collapse navbar-collapse" id="navbarColor02">
         <ul className="navbar-nav mr-auto">
-          {categories.map((category, index) => (
+          {/* Navigations between available categories */}
+          {categories.map((category: string, index: number) => (
             <li className="nav-item" key={index}>
               <a
                 className="nav-link"

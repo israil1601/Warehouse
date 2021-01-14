@@ -15,13 +15,11 @@ const ProductContainer = ({ currentProducts }) => {
           height={height}
           itemData={currentProducts}
         >
-          {(
-            { style, data, rowIndex, columnIndex },
-          ) => (<div style={{ ...style, padding: '1vw', marginLeft: '5vw' }}>
-            <Product
-              product={data[rowIndex * 3 + columnIndex]}
-            />
-          </div>)}
+          {({ style, data, rowIndex, columnIndex }) => (
+            <div style={{ ...style, padding: "1vw", marginLeft: "5vw" }}>
+              <Product product={data[rowIndex * 3 + columnIndex]} />
+            </div>
+          )}
         </FixedSizeGrid>
       )}
     </AutoSizer>
